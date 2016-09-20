@@ -24,11 +24,7 @@
   border-bottom: 1px solid black;
   margin-bottom: 20px;
 }
-/*
-.new-tweet hr {
-  border: 0;
-  height: 1px;
-  margin: 0 0 20px 0;
-  background-color: black;
+
+.red {
+  color: red;
 }
-*/
