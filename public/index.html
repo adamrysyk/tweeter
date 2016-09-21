@@ -14,11 +14,15 @@
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/tweet.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/font-awesome-4.6.3/css/font-awesome.css" type="text/css" />
     <!-- External JS -->
     <script type="text/javascript" src="/vendor/jquery-2.2.3.min.js"></script>
 
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/app.js"></script>
+    <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
+
   </head>
 
   <body>
@@ -41,7 +45,21 @@
             <span class="counter">140</span>
         </form>
       </section>
+      <section class="tweet-container">
+        <header>
+          <img src="/images/Toco-Toucan-Pictures.jpg"><h2>Bill Fields</h2>
+          <p>@MrToucan</p>
+        </header>
+        <article>body of the tweet</article>
+        <footer>
+          <div class="time-stamp">10 days ago</div>
+          <div class="icons">
+            <i class="fa fa-flag" aria-hidden="true"></i>
+            <i class="fa fa-retweet" aria-hidden="true"></i>
+            <i class="fa fa-heart" aria-hidden="true"></i>
+          </div>
+        </footer>
+      </section>
     </main>
-    <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
   </body>
 </html>
