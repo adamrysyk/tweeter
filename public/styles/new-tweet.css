@@ -2,13 +2,39 @@
   overflow: auto;
   border: 1px solid #cfcfcf;
   border-radius: 7px;
-  background-color: #eee;
+  background-color: #d1f7e0;
   padding: 10px;
+  margin-bottom: 50px;
 }
+
+.new-tweet input {
+  position: relative;
+  top: 3px;
+  background-color: white;
+  border-radius: 10px;
+  border: 1px solid #cfcfcf;
+  outline: none;
+}
+
+
 
 .new-tweet textarea{
   padding: 5px;
   width: 100%;
+  border-radius: 4px;
+  border: 1px solid #cfcfcf;
+  outline: none;
+  resize: none;
+}
+
+.tweet-error {
+  display: inline-block;
+  padding: 0px 0px;
+  margin: 0px;
+  text-align: center;
+  color: red;
+  position: relative;
+  top: 3px;
 }
 
 .new-tweet .counter {

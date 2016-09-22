@@ -32,6 +32,10 @@
     <nav id="nav-bar">
       <img class="logo" src="/images/bird.png">
       <span class="header">Tweeter</span>
+      <div class="compose">
+        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+        <p>Compose</p>
+      </div>
     </nav>
 
     <!-- Page-specific (main) content here -->
@@ -39,26 +43,15 @@
 
       <section class="new-tweet">
         <h2>Compose Tweet</h2>
-        <form action="/tweets/" method="POST">
-          <textarea name="text" placeholder="What are you humming about?"></textarea>
+        <form class="submit-tweet" action="/tweets/" method="POST">
+          <textarea
+            id="tweet-input"
+            name="text"
+            placeholder="What are you humming about?"></textarea>
             <input type="submit" value="Tweet">
+            <div class="tweet-error"></div>
             <span class="counter">140</span>
         </form>
-      </section>
-      <section class="tweet-container">
-        <header>
-          <img src="/images/Toco-Toucan-Pictures.jpg"><h2>Bill Fields</h2>
-          <p>@MrToucan</p>
-        </header>
-        <article>body of the tweet</article>
-        <footer>
-          <div class="time-stamp">10 days ago</div>
-          <div class="icons">
-            <i class="fa fa-flag" aria-hidden="true"></i>
-            <i class="fa fa-retweet" aria-hidden="true"></i>
-            <i class="fa fa-heart" aria-hidden="true"></i>
-          </div>
-        </footer>
       </section>
     </main>
   </body>

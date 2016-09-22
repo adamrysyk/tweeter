@@ -1,15 +1,16 @@
-section.tweet-container {
+.tweet-container {
   width: 100%;
-  margin: 50px 0px ;
-  overflow: auto;
+  margin-bottom: 50px;
   border: 1px solid #cfcfcf;
   border-radius: 7px;
 }
 
 .tweet-container header {
-  background-color: #eee;
+  background-color: #d1f7e0;
   padding: 10px;
   height: 60px;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
 }
 
 .tweet-container img {
@@ -39,19 +40,19 @@ section.tweet-container {
   padding: 30px 10px;
   border-bottom: 1px solid #cfcfcf;
   height: 90px;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
-
 
 .tweet-container footer {
-  height: 10px;
+  height: 28px;
   padding: 0;
 }
-
 
 .tweet-container footer .time-stamp {
   font-size: 12px;
   position: relative;
-  top: 10px;
+  top: 6px;
   padding: 0px 5px;
 }
 
@@ -59,9 +60,13 @@ section.tweet-container {
   float: right;
   color: #eee;
   position: relative;
-  bottom: 5px;
-  padding: 0px 6px;
+  bottom: 10px;
+  padding: 0px 5px;
 }
+.tweet-container footer i {
+  padding: 0px 2px;
+}
+
 
 .tweet-container:hover {
   border: 1px solid black;

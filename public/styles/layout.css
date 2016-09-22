@@ -21,9 +21,9 @@ body {
   width: 450px;
   background-color: white;
   margin: 80px auto 0 auto;
-  overflow: auto;
   padding: 60px 2EM 60px 2EM;
-  height: 90vh;
+  min-height: 100vh;
+  height: 100%;
 }
 
 /*
