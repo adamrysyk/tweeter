@@ -60,7 +60,7 @@ $( document ).ready(function() {
       return;
     }
     if (count === 0) {
-      $tweetError.text("*You must tweet a tweet to tweet.*").fadeOut(2000)
+      $tweetError.text("*You must enter characters to tweet.*").fadeOut(2000)
       return;
     }
 
