@@ -48,10 +48,10 @@ let $tweet = createTweetElement(tweetData);
 $( document ).ready(function() {
 
   $(".submit-tweet").on("submit", function(event) {
-    event.preventDefault();
-    let tweetObject = $(this).serialize();
-    let count = $("#tweet-input").val().length;
-    $tweetError = $( ".tweet-error" );
+    event.preventDefault()
+    let tweetObject = $(this).serialize()
+    let count = $("#tweet-input").val().length
+    let $tweetError = $( ".tweet-error" )
 
     $tweetError.text("").fadeIn(900);
 
@@ -69,31 +69,31 @@ $( document ).ready(function() {
       url: "/tweets",
       data: tweetObject,
       success: function(){
-        $("#tweet-input").val("");
+        $("#tweet-input").val("")
         $(".counter").text("140")
-        loadTweets();
+        loadTweets()
       }
-    });
-  });
+    })
+  })
 
   $(".compose").click(function() {
     let $newTweet = $( ".new-tweet" );
     $(".compose").toggleClass("inverted");
     if ( $newTweet.is( ":hidden" ) ) {
-      $newTweet.slideDown(350);
-      $newTweet.find("#tweet-input").focus();
+      $newTweet.slideDown(350)
+      $newTweet.find("#tweet-input").focus()
     } else {
-      $( ".new-tweet" ).slideUp(350);
+      $( ".new-tweet" ).slideUp(350)
     }
-  });
+  })
 
   function loadTweets(){
     $.ajax({
       url: '/tweets',
       method: 'GET',
       success: function (tweetData) {
-        $( ".tweet-container" ).remove();
-        renderTweets(tweetData);
+        $( ".tweet-container" ).remove()
+        renderTweets(tweetData)
       }
     })
   }
@@ -104,7 +104,7 @@ $( document ).ready(function() {
 function renderTweets(tweets) {
   for(let tweet of tweets){
     let $tweet = createTweetElement(tweet);
-    $('.container').append($tweet[0]);
+    $('.container').append($tweet[0])
   }
 }
 
