@@ -1,11 +1,6 @@
-/*
- * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
- */
+"use strict"
 
-
-var tweetData = {
+let tweetData = {
   "user": {
     "name": "Newton",
     "avatars": {
@@ -23,23 +18,24 @@ var tweetData = {
 
 function createTweetElement(tweet) {
 
-  var date = Math.floor((Date.now() - new Date(tweet.created_at))/86400000)
-  var $header = $("<header>")
+  let date = Math.floor((Date.now() - new Date(tweet.created_at))/86400000)
+
+  let $header = $("<header>")
    .append($("<img>").attr('src', tweet.user.avatars.small))
    .append($("<h2>").text(tweet.user.name))
    .append($("<p>").text(tweet.user.handle))
 
-  var $footer1 = $("<div>").addClass("icons")
+  let $footer1 = $("<div>").addClass("icons")
     .append($("<i>").addClass("fa fa-flag").attr('aria-hidden', 'true'))
     .append($("<i>").addClass("fa fa-retweet").attr('aria-hidden', 'true'))
     .append($("<i>").addClass("fa fa-heart").attr('aria-hidden', 'true'))
 
-  var $footer = $("<footer>")
+  let $footer = $("<footer>")
    .append($("<div>").addClass("time-stamp").text(date + " days ago"))
    .append($("<div>").addClass("icons"))
    .append($footer1)
 
-  var $post = $("<section>").addClass("tweet-container")
+  let $post = $("<section>").addClass("tweet-container")
    .append($header)
    .append($("<article>").text(tweet.content.text))
    .append($footer)
@@ -48,26 +44,28 @@ function createTweetElement(tweet) {
 }
 
 
-var $tweet = createTweetElement(tweetData);
+let $tweet = createTweetElement(tweetData);
 
-// Test / driver code (temporary)
-console.log($tweet[0]); // to see what it looks like
+
 $( document ).ready(function() {
+
   $(".submit-tweet").on("submit", function(event) {
     event.preventDefault()
-    var tweetObject = $(this).serialize()
-    console.log(tweetObject);
-    var counter = $("#tweet-input").val().length
-    $(".tweet-error").text("").fadeIn(900)
-    console.log(counter)
-    if (counter > 140) {
-        $(".tweet-error").text("*Your tweet must be under 140 characters.*").fadeOut(2000)
+    let tweetObject = $(this).serialize()
+    let count = $("#tweet-input").val().length
+    $tweetError = $( ".tweet-error" )
+
+    $tweetError.text("").fadeIn(900)
+
+    if (count > 140) {
+        $tweetError.text("*Your tweet must be under 140 characters.*").fadeOut(2000)
       return;
     }
-    if (counter === 0) {
-      $(".tweet-error").text("*You must tweet a tweet to tweet.*").fadeOut(2000)
+    if (count === 0) {
+      $tweetError.text("*You must tweet a tweet to tweet.*").fadeOut(2000)
       return;
     }
+
     $.ajax({
       type: "POST",
       url: "/tweets",
@@ -81,11 +79,11 @@ $( document ).ready(function() {
   });
 
   $(".compose").click(function() {
-    console.log("SLIDDDINGGGGGG!!!")
+    let $newTweet = $( ".new-tweet" )
     $(".compose").toggleClass("inverted")
-    if ( $( ".new-tweet" ).is( ":hidden" ) ) {
-      $( ".new-tweet" ).slideDown(350);
-      $(".new-tweet #tweet-input").focus();
+    if ( $newTweet.is( ":hidden" ) ) {
+      $newTweet.slideDown(350);
+      $newTweet.find("#tweet-input").focus();
     } else {
       $( ".new-tweet" ).slideUp(350);
     }
@@ -106,18 +104,10 @@ $( document ).ready(function() {
 })
 
 function renderTweets(tweets) {
-  for(tweet of tweets){// loops through tweets
-    var $tweet = createTweetElement(tweet);// calls createTweetElement for each tweet
+  for(let tweet of tweets){// loops through tweets
+    let $tweet = createTweetElement(tweet);// calls createTweetElement for each tweet
     $('.container').append($tweet[0]); // takes return value and appends it to the tweets container
   }
 }
-
-
-
-
-
-
-
-
 
 
