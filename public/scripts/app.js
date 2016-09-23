@@ -1,4 +1,4 @@
-"use strict"
+"use strict";
 
 let tweetData = {
   "user": {
@@ -14,11 +14,11 @@ let tweetData = {
     "text": "If I have seen further it is by standing on the shoulders of giants"
   },
   "created_at": 1461116232227
-}
+};
 
 function createTweetElement(tweet) {
 
-  let date = Math.floor((Date.now() - new Date(tweet.created_at))/86400000)
+  let date = Math.floor((Date.now() - new Date(tweet.created_at))/86400000);
 
   let $header = $("<header>")
    .append($("<img>").attr('src', tweet.user.avatars.small))
@@ -40,22 +40,20 @@ function createTweetElement(tweet) {
    .append($("<article>").text(tweet.content.text))
    .append($footer)
 
-  return $post
+  return $post;
 }
 
-
 let $tweet = createTweetElement(tweetData);
-
 
 $( document ).ready(function() {
 
   $(".submit-tweet").on("submit", function(event) {
-    event.preventDefault()
-    let tweetObject = $(this).serialize()
-    let count = $("#tweet-input").val().length
-    $tweetError = $( ".tweet-error" )
+    event.preventDefault();
+    let tweetObject = $(this).serialize();
+    let count = $("#tweet-input").val().length;
+    $tweetError = $( ".tweet-error" );
 
-    $tweetError.text("").fadeIn(900)
+    $tweetError.text("").fadeIn(900);
 
     if (count > 140) {
         $tweetError.text("*Your tweet must be under 140 characters.*").fadeOut(2000)
@@ -79,8 +77,8 @@ $( document ).ready(function() {
   });
 
   $(".compose").click(function() {
-    let $newTweet = $( ".new-tweet" )
-    $(".compose").toggleClass("inverted")
+    let $newTweet = $( ".new-tweet" );
+    $(".compose").toggleClass("inverted");
     if ( $newTweet.is( ":hidden" ) ) {
       $newTweet.slideDown(350);
       $newTweet.find("#tweet-input").focus();
@@ -99,14 +97,14 @@ $( document ).ready(function() {
       }
     })
   }
-  loadTweets()
+  loadTweets();
 
 })
 
 function renderTweets(tweets) {
-  for(let tweet of tweets){// loops through tweets
-    let $tweet = createTweetElement(tweet);// calls createTweetElement for each tweet
-    $('.container').append($tweet[0]); // takes return value and appends it to the tweets container
+  for(let tweet of tweets){
+    let $tweet = createTweetElement(tweet);
+    $('.container').append($tweet[0]);
   }
 }
 

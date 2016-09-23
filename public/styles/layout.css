@@ -1,11 +1,7 @@
-/*
- * http://www.paulirish.com/2012/box-sizing-border-box-ftw/
- * https://css-tricks.com/international-box-sizing-awareness-day/
- * Do not modify these two selectors, please
- */
 html {
   box-sizing: border-box;
 }
+
 *, *:before, *:after {
   box-sizing: inherit;
 }
@@ -25,7 +21,3 @@ body {
   min-height: 100vh;
   height: 100%;
 }
-
-/*
- * Additional CSS can be defined below or in other CSS files, as per instructions
- */
